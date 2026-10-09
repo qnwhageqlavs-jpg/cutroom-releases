@@ -2,11 +2,11 @@
 
 CUTROOM 是面向视频制作同事的本地 Windows 工具。这里提供经过检查的安装包、升级包、操作手册和版本说明；开发源码与开发记录在独立私有仓库维护。
 
-[下载 Beta 0.9.0-beta.13](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/tag/v0.9.0-beta.13) · [操作手册](docs/user-guide/cutroom-user-guide.md)
+[下载 Beta 0.9.0-beta.14](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/tag/v0.9.0-beta.14) · [操作手册](docs/user-guide/cutroom-user-guide.md)
 
 ## 获取与更新
 
-下载 `CUTROOM-v0.9.0-beta.13-windows-x64.zip`，解压到固定目录（例如 `D:\CUTROOM`），双击 **安装CUTROOM.bat**，安装完成后用 **启动CUTROOM.bat** 打开。首次安装需要联网获取 Python、Node.js、FFmpeg 及依赖。不要下载 GitHub 自动生成的 Source code。后续双击安装目录内的 **产品更新升级.bat** 检查更新，无需 GitHub 账号。
+下载 `CUTROOM-v0.9.0-beta.14-windows-x64.zip`，解压到固定目录（例如 `D:\CUTROOM`），双击 **安装CUTROOM.bat**，安装完成后用 **启动CUTROOM.bat** 打开。首次安装需要联网获取 Python、Node.js、FFmpeg 及依赖。不要下载 GitHub 自动生成的 Source code。后续双击安装目录内的 **产品更新升级.bat** 检查更新，无需 GitHub 账号。
 
 升级前保存页面草稿并等待所有任务结束；退出 Agent 客户端并重启电脑后，先运行升级入口。只关闭网页不会停止后台。升级工具保留任务、素材、账号配置与原启动路径；遇到不兼容或校验失败会停止并说明下一步。不要手动把 ZIP 覆盖到旧目录。旧版本没有升级入口时，运行新解压包中的升级入口并选择原安装目录。当前快捷升级要求依赖和数据库结构兼容，程序文件没有本地修改；不符合时停止并交维护人员处理。
 
