@@ -1,6 +1,6 @@
 # CUTROOM 安装、升级与恢复维护说明
 
-适用：0.9.0-beta.14 Windows 安装的维护人员。普通同事请使用[操作手册](../user-guide/cutroom-user-guide.md)。
+适用：CUTROOM Windows 编译发行版的维护人员；具体版本以安装目录 release-manifest.json 为准。普通同事请使用[操作手册](../user-guide/cutroom-user-guide.md)。
 
 首次安装使用发行 ZIP 中的安装入口；正常启动使用同目录启动入口。本页说明已有任务的保全、迁移、回退和卸载，不要求普通同事运行命令。
 
@@ -29,7 +29,7 @@
 
 ### 14.1 升级
 
-0.9.0-beta.14使用同一Windows ZIP安装或升级，不提供自动搬迁旧任务的一键更新器。启动后数据库按正常流程迁移至schema 93。旧任务须按以下流程保全，不能用旧版直接打开已迁移数据库。
+当前编译发行版使用 Windows ZIP 安装；只有满足兼容条件的旧安装可用快捷更新，跨数据库结构或依赖版本须独立安装并维护恢复。当前源码的数据库迁移终点为 schema 96；具体安装兼容性由升级工具核验。旧任务须按以下流程保全，不能用旧版直接打开已迁移数据库。
 
 以下由维护人员执行，普通同事不要自行移动安装目录或复制数据库。
 
@@ -52,9 +52,15 @@
 .\.venv\Scripts\python.exe scripts/upgrade_cutroom.py restore --snapshot-root "E:\CUTROOM-backup\upgrade-20261003" --destination-root "E:\CUTROOM-new"
 ```
 
+编译发行包的渲染依赖同时包含加载器与执行文件。维护工具核对旧任务保存的组合身份，并按实际字节备份两份文件；旧程序文件保留在原目录和备份中，不覆盖新安装的程序。恢复前后都会核对目标目录自己的发行清单。若提示程序文件变化，应检查对应安装，不能手动改签名或复制旧程序盖过新版。
+
+连续升级时，任务素材和字体沿用各自冻结的原地址，不统一改指向最早安装目录。已完成任务的观看、批准和 AI 检查失败状态原样保留；维护恢复不会代为批准、补查或重新收费。此流程仍要求保留历史原目录，不是可删除旧目录的数据搬迁。
+
 先只读盘点。仅当 `snapshotInputsComplete=true`、没有未解决引用，且维护人员已核明并停止**原安装**服务/作业，才传 `--source-stopped`；此标志是维护人员的停机声明，程序不会杀进程。`--out` 可选报告必须是新旧安装之外的新文件，不覆盖已有报告。源账本必须位于源目录内。
 
 盘点会核原稿、托管声音及祖先、旧广告声音、已知冻结渲染/QA/候选/交付、本地库/音乐、包装预览/实例/个人模板和终止作业请求。历史签名与备份当前观察分开：当前观察不回填原素材SHA、不批准模板/包装或使陈旧预览重新有效。无可信原签名、未知版本/字段、离线/缺失、内容或归属变化时先解决具体缺口；不重新签名或猜测全局路径。
+
+已停止且结果未知的付费调用，在请求、归属和必要文件均可核验时可原样备份；保留未知结果与费用状态，不自动重发，也不转成已确认结果。缺失原签名文件、未知的人工修改字段或跨任务引用仍会阻止完整快照，报告具体缺口并保留原安装。
 
 快照目录必须尚不存在，程序使用SQLite一致备份，复制数据文件并核摘要，最后才写完成回执。**快照会复制盘点中已登记的引用文件，可能包括外盘媒体；先预留相应空间**，不会递归扫描未登记目录。凭据、源代码和根`.env`不作为任务恢复文件复制；新目录的配置由维护人员另核对。
 
@@ -110,3 +116,28 @@ Beta.10 起自动记录已捕获的错误到安装目录 `runtime/diagnostics/`�
 反馈包保留诊断编号、错误类型、相对代码路径及行号，不保存原始异常消息、源代码行或局部变量。分析时结合包内版本、用户描述及对应源码。任务/作业只保留散列关联标识；接口参数及实际路径段不进入日志。维护只读回看模式不新增诊断文件，不改变恢复副本。
 
 升级时保留已有 `runtime/diagnostics`，用于关联升级前后的问题；没有新增诊断数据库表或修改费用/重试规则。日志目录不可写时不阻断业务，可能缺少记录，需结合截图排查。自动收集不等于自动外发。
+
+## 编译发行构建与数据保护
+
+实际版本和发布状态以 package.json、发行清单及发布记录为准。源码目录先运行 `npm ci`，使用 Python 3.11 执行：
+
+```powershell
+$releaseVersion = (Get-Content package.json -Raw | ConvertFrom-Json).version
+python scripts/build_public_release.py --output out/release --version $releaseVersion
+```
+
+构建只使用 package.json 锁定的 TypeScript/esbuild，版本必须与包版本一致；缺依赖时先完成 `npm ci`。最终发行必须来自已完整提交的干净检出，不能把临时补丁目录直接压成安装包。安装包有逐文件清单及 ZIP 校验值。
+
+构建器将 Python 编译输入和随包 JSON 的换行固定为 Windows CRLF；生成的兼容加载器仍使用 LF，源码文件不会被改写。这样，从 Git 的 LF 归档和 Windows 的 CRLF 检出构建，会得到相同的 Python 字节码和 JSON 内容，避免仅换行差异使已审候选失效。Python 文件按固定顺序交给新启动的编译子进程，进程启动时设置 `PYTHONHASHSEED=0`，稳定常量集合的序列化顺序；修改父进程环境变量不能替代此步骤。其他二进制资产保留原始字节。
+
+已审运行身份由 `media_catalog/render-runtime-compat-v1.json` 保存：Python 必须匹配完整程序语义，编译头、调试位置及常量集合的序列化顺序不能掩盖程序变化；本版 TypeScript 类型库由 ES2020 升至 ES2022 的配置仅接受登记的完整文件 SHA，运行编译目标仍为 ES2020。修改 target、module 或其他字段不能借此沿用旧审核。该兼容记录只用于候选依赖核验，发行清单与 ZIP 校验始终核验实际分发字节；不得手工修补安装产物。
+
+启动提示 `STORAGE_DATABASE_MISSING` 时，保留 `%LOCALAPPDATA%/CUTROOM/task-protection` 中与该数据库对应的保护目录。停止对应实例后，核对历史清单的原数据库地址、时间及备份文件，优先使用 `last-nonempty.json` 指向的最后含任务快照。使用同版本安装内 Python 与既有恢复命令：
+
+```powershell
+.\.venv\Scripts\python.exe scripts/media_catalog.py --db "E:\CUTROOM\runtime\workbench\catalog.sqlite" restore --from "E:\verified-backup\catalog.sqlite"
+```
+
+请替换为实际数据库和备份地址。恢复工具执行数据库完整性校验，已有目标不会无备份覆盖。恢复后再正常启动核对任务与文件。数据库快照不能替代媒体文件备份；不要清空保护目录或伪造初始化记录。
+
+开发验证同样使用项目自己的依赖：先用 Python 3.11 在项目根目录建立 `.venv`，再用 `.venv/Scripts/python.exe -m pip install -r requirements.txt` 安装声明的依赖；真实渲染测试会调用该环境，不能只依赖其他安装目录的 Python。全量后台验证包含 MCP 安装测试，另需用同一 Python 安装 `requirements-mcp.txt`；普通网页使用不要求这项可选依赖。执行 `npm ci` 后执行 `npm run test:web`（全部前端文件串行）、`npm run test:ts`（TypeScript 串行），以及 Python 3.11 环境中的 `python scripts/test_backend.py`。后台入口按完整测试 ID 去除重复导入的同一用例，不省略独立测试；`--list` 可查看发现清单；执行模式未发现任何用例时会报错退出，不能算作通过。前端 Windows 目录选择测试可用 `CUTROOM_TEST_PYTHON` 指向当前安装的专用 Python，无需 Codex 的模块路径。

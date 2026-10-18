@@ -210,7 +210,7 @@ http://127.0.0.1:8765/#/tasks/<task-id>
 
 ## 9. 包装建议与候选环境
 
-新增cutroom_get_packaging_request(task_id, request_id)和cutroom_submit_packaging_result(task_id, request_id, response)。从cutroom_get_task的packagingSuggestion取得待处理请求；领取结果包含已审核提示词、有限上下文和输出Schema。客户端身份由启动参数固定，不能在工具入参伪造。提交只生成建议草案，四道人审门禁仍在网页；过期、取消、输入变化的结果不应用。用户可以在05页取消等待后重发。
+新增cutroom_get_packaging_request(task_id, request_id)和cutroom_submit_packaging_result(task_id, request_id, response)。从cutroom_get_task的packagingSuggestion取得待处理请求；领取结果包含本次请求冻结的提示词、有限上下文和输出Schema。客户端身份由启动参数固定，不能在工具入参伪造。提交只生成建议草案，四道人审门禁仍在网页；过期、取消、输入变化的结果不应用。用户可以在05页取消等待后重发。
 
 本版共26个工具，允许的任务动作仍4个。旧安装若只返回12或14工具，应先核对实际源码/数据库/宿主会话，不能把旧服务当新候选。
 
@@ -220,7 +220,7 @@ http://127.0.0.1:8765/#/tasks/<task-id>
 python scripts/cutroom_mcp.py --client codex --db runtime/product-acceptance/catalog.sqlite --workbench-origin http://127.0.0.1:8788
 ```
 
-这不会更改全局安装配置，但启动服务会迁移指定数据库，不能把启动服务当只读检查。省略参数仍使用原默认workbench库及8765。2026-09-29的schema75/14工具候选和schema39/12工具旧安装仅是历史快照；当前候选协议为26工具，已安装环境须按实际配置、运行进程和客户端状态另行核验。P09真实调用依赖已审核提示词与产品内显式请求，不把测试回执当用户批准。
+这不会更改全局安装配置，但启动服务会迁移指定数据库，不能把启动服务当只读检查。省略参数仍使用原默认workbench库及8765。2026-09-29的schema75/14工具候选和schema39/12工具旧安装仅是历史快照；当前候选协议为26工具，已安装环境须按实际配置、运行进程和客户端状态另行核验。P09真实调用由05页的显式费用确认形成技术执行许可，绑定本次任务、请求、当前协议版本/哈希、输入摘要和实际模型配置；不依赖维护人员手填全局批准JSON。领取与返回仍校验冻结协议和当前输入。该许可不批准包装内容、素材版权、观看或发布，也不把测试回执当正式批准。
 
 ## 10. 编辑、节奏与补拍工具
 
