@@ -2,7 +2,7 @@
 
 从数字人口播，或一份广告文案和一批本地素材开始，完成选镜头、配音、字幕包装、审片和导出。你可以让 CUTROOM 先推荐，再在同一工作台里预览和调整；无需用聊天助手代替产品完成日常剪辑。
 
-**[下载安装包](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases) · [操作手册](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.80/CUTROOM-v0.9.0-beta.80-user-guide.html) · [常见问题](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.80/CUTROOM-v0.9.0-beta.80-user-guide.html#troubleshooting)**
+**[下载安装包](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases) · [操作手册](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.81/CUTROOM-v0.9.0-beta.81-user-guide.html) · [常见问题](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.81/CUTROOM-v0.9.0-beta.81-user-guide.html#troubleshooting)**
 
 ## 它能帮你做什么
 
@@ -23,7 +23,7 @@
 
 CUTROOM 处理已有数字人口播视频，不生成数字人形象。目前交付 MP4，不提供剪映原生可编辑工程，也不自动发布到短视频平台。
 
-本次发行：[CUTROOM v0.9.0-beta.80](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/tag/v0.9.0-beta.80)，附可直接打开的 HTML 操作手册。
+本次发行：[CUTROOM v0.9.0-beta.81](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/tag/v0.9.0-beta.81)，附可直接打开的 HTML 操作手册。
 
 ## 第一次使用：安装、准备、做一条短片
 
@@ -34,7 +34,7 @@ CUTROOM 处理已有数字人口播视频，不生成数字人形象。目前交
 5. **准备账号与素材。** 在“设置”中配置自己可用的 AI 服务，再到“镜头素材”登记本次使用的文件夹。广告还需配音服务，数字人使用已有原声。账号不清楚时请管理员协助。
 6. **创建第一条视频。** 先选一条素材齐全的短片，按下方五步完成，导出后打开 MP4 检查。
 
-模型检测、配音和 AI 分析可能产生服务费用。只使用网页即可制作视频；连接 WorkBuddy、豆包工作等助手属于可选功能。
+日常制作在工作台内完成，服务账号和密钥统一在“设置”中配置。模型检测、配音和 AI 分析可能产生服务费用；连接 WorkBuddy、豆包工作等助手属于可选功能。
 
 ## 五步完成制作
 
@@ -50,7 +50,7 @@ CUTROOM 处理已有数字人口播视频，不生成数字人形象。目前交
 
 ## 素材多时，能用得动吗？做完一条片要多久？
 
-**素材可以集中管理，再按项目选择使用范围。** 已有本机模拟测试使用 23,000 条素材记录：在后台同时处理视频的情况下，4 路读取共 80 次素材分页查询全部在 1 秒内完成，没有查询错误。这测的是已登记素材的列表读取，不是首次扫描、分析 2 万个真实视频，也不是每台电脑的整页打开速度保证。
+**素材可以集中管理，再按项目选择使用范围。** 已分析的素材可复用，制作新视频时无需重复分析未变化的内容。
 
 **目前不承诺“从创建到导出只需几分钟”。** 首次素材分析、片长、电脑速度、外部 AI 服务和人工修改次数都会影响总时间。页面会显示当前处理进度和有依据的耗时参考；已分析素材可复用，避免每条片重新分析。首次使用建议先把一条短片完整做通，再批量开展工作。
 
@@ -65,8 +65,8 @@ CUTROOM 处理已有数字人口播视频，不生成数字人形象。目前交
 
 ## 使用帮助
 
-- [完整操作手册](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.80/CUTROOM-v0.9.0-beta.80-user-guide.html)：首次设置、各步骤操作、改片、恢复和导出。
-- [连接聊天助手](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.80/CUTROOM-v0.9.0-beta.80-user-guide.html#agent-mode)：可选，不影响普通网页制作。
+- [完整操作手册](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.81/CUTROOM-v0.9.0-beta.81-user-guide.html)：首次设置、各步骤操作、改片、恢复和导出。
+- [连接聊天助手](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.81/CUTROOM-v0.9.0-beta.81-user-guide.html#agent-mode)：可选，不影响普通网页制作。
 - 管理员维护说明（安装包内 docs/operations/cutroom-maintenance.md）：安装故障、更新、备份和连接配置。
 
 本仓库用于程序发行；公开下载不等于开源授权。任务、素材和账号由使用者在自己的电脑上管理。不要在公开 Issues 上传原片、任务备份或账号信息。
