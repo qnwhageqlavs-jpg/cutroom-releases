@@ -2,7 +2,7 @@
 
 CUTROOM 是面向视频制作同事的本地 Windows 工具。此包提供程序、操作手册和版本说明；开发源码与开发记录在独立私有仓库维护。
 
-[下载 v0.9.0-beta.77](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/tag/v0.9.0-beta.77) · **版本以安装包内 `release-manifest.json` 为准** · [操作手册](docs/user-guide/cutroom-user-guide.md)
+[下载 v0.9.0-beta.78](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/tag/v0.9.0-beta.78) · **版本以安装包内 `release-manifest.json` 为准** · [操作手册](docs/user-guide/cutroom-user-guide.md)
 
 ## 获取与更新
 
