@@ -2,7 +2,7 @@
 
 从数字人口播，或一份广告文案和一批本地素材开始，完成选镜头、配音、字幕包装、审片和导出。你可以让 CUTROOM 先推荐，再在同一工作台里预览和调整；无需用聊天助手代替产品完成日常剪辑。
 
-**[下载安装包](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases) · [操作手册](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.81/CUTROOM-v0.9.0-beta.81-user-guide.html) · [常见问题](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.81/CUTROOM-v0.9.0-beta.81-user-guide.html#troubleshooting)**
+**[下载安装包](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases) · [操作手册](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.83/CUTROOM-v0.9.0-beta.83-user-guide.html) · [常见问题](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.83/CUTROOM-v0.9.0-beta.83-user-guide.html#troubleshooting)**
 
 ## 它能帮你做什么
 
@@ -23,7 +23,7 @@
 
 CUTROOM 处理已有数字人口播视频，不生成数字人形象。目前交付 MP4，不提供剪映原生可编辑工程，也不自动发布到短视频平台。
 
-本次发行：[CUTROOM v0.9.0-beta.81](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/tag/v0.9.0-beta.81)，附可直接打开的 HTML 操作手册。
+本次发行：[CUTROOM v0.9.0-beta.83](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/tag/v0.9.0-beta.83)，附可直接打开的 HTML 操作手册。
 
 ## 第一次使用：安装、准备、做一条短片
 
@@ -61,12 +61,12 @@ CUTROOM 处理已有数字人口播视频，不生成数字人形象。目前交
 - **处理失败：** 看页面原因，再使用对应的继续或重试入口。配音结果未知时先找回原请求，不要连续重新生成。
 - **反馈问题：** 点页面“导出报错日志”；网页打不开时使用安装目录的“导出报错日志.bat”。把日志、所在步骤和出错时间交给维护人员，不分享账号密钥。
 
-当前为 Beta 试用版。两条制作路线已有本机独立安装、人工审片及导出记录；历史广告首次打开偏慢、偶发播放异常仍在专项排查。新电脑请先完成第一条短片验收，不能把本机结果视为所有电脑和素材都已验证。
+当前为 Beta 试用版。数字人和信息流广告已有本机独立安装、人工审片及 MP4 导出记录；历史广告首次打开仍可能需要等待，速度继续优化。本版不提供剪映原生工程、AI 自动生成发布文字或数字单位读法替换；AI 建议仍需人工核对。新电脑请先完成第一条短片验收，不能把本机结果视为所有电脑和素材都已验证。
 
 ## 使用帮助
 
-- [完整操作手册](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.81/CUTROOM-v0.9.0-beta.81-user-guide.html)：首次设置、各步骤操作、改片、恢复和导出。
-- [连接聊天助手](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.81/CUTROOM-v0.9.0-beta.81-user-guide.html#agent-mode)：可选，不影响普通网页制作。
+- [完整操作手册](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.83/CUTROOM-v0.9.0-beta.83-user-guide.html)：首次设置、各步骤操作、改片、恢复和导出。
+- [连接聊天助手](https://github.com/qnwhageqlavs-jpg/cutroom-releases/releases/download/v0.9.0-beta.83/CUTROOM-v0.9.0-beta.83-user-guide.html#agent-mode)：可选，不影响普通网页制作。
 - 管理员维护说明（安装包内 docs/operations/cutroom-maintenance.md）：安装故障、更新、备份和连接配置。
 
 本仓库用于程序发行；公开下载不等于开源授权。任务、素材和账号由使用者在自己的电脑上管理。不要在公开 Issues 上传原片、任务备份或账号信息。
